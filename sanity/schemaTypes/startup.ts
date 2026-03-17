@@ -41,7 +41,6 @@ export const startup = defineType({
     defineField({
       name: "image",
       type: "image", 
-      options: { hotspot: true },
       validation: (Rule) => Rule.required(),
     }),
 
@@ -53,12 +52,4 @@ export const startup = defineType({
       of: [{ type: "block" }],
     }),
   ],
-
-  preview: {
-    select: {
-      title: "title",
-      subtitle: "category",
-      media: "image",
-    },
-  },
 });
