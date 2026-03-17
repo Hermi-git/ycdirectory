@@ -2,11 +2,14 @@
   "name": "ycdirectory",
   "version": "0.1.0",
   "private": true,
-  "scripts": {
+    "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build --turbopack",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "typegen": "dotenv -e .env.local -- sanity schema extract --path=./sanity/extract.json && dotenv -e .env.local -- sanity typegen generate",
+    "predev": "npm run typegen",
+    "prebuild": "npm run typegen"
   },
   "packageManager": "npm@10.8.2",
   "dependencies": {
@@ -34,6 +37,7 @@
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "@types/styled-components": "^5.1.36",
+    "dotenv-cli": "^11.0.0",
     "eslint": "^9",
     "eslint-config-next": "^16.1.6",
     "tailwindcss": "^4",
