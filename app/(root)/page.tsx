@@ -6,8 +6,11 @@ import { sanityFetch, SanityLive } from "@/sanity/lib/live";
 export default async function Home({searchParams,}:{
   searchParams: Promise<{ query?: string }>;}) {
     const query = (await searchParams).query;
-
-    const { data: posts } = await sanityFetch({ query: STARTUPS_QUERY,});
+    const params = { search: query || null };
+    const { data: posts } = await sanityFetch({
+      query: STARTUPS_QUERY,
+      params: { search: query || null },
+    });
 
   return <> 
    <section className="w-full bg-pink-600 min-h-[530px] background-image: linear-gradient(

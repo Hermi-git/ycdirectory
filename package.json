@@ -8,7 +8,6 @@
     "start": "next start",
     "lint": "eslint",
     "typegen": "dotenv -e .env.local -- sanity schema extract --path=./sanity/extract.json && dotenv -e .env.local -- sanity typegen generate",
-    "predev": "npm run typegen",
     "prebuild": "npm run typegen"
   },
   "packageManager": "npm@10.8.2",
